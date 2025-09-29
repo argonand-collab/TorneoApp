@@ -1,0 +1,46 @@
+{
+    "name": "Android Studio Environment",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/android-sdk:1": {
+            "version": "latest",
+            "cmakeVersion": "3.22.1",
+            "ndkVersion": "23.1.7779620",
+            "buildToolsVersion": "33.0.0",
+            "platformsVersion": "33"
+        },
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17"
+        },
+        "ghcr.io/devcontainers/features/kotlin:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mathiasfrohlich.Kotlin",
+                "naco-siren.gradle-language",
+                "visualstudioexptteam.vscodeintellicode",
+                "ms-vscode.vscode-typescript-next",
+                "redhat.java",
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-gradle",
+                "ms-vscode.makefile-tools"
+            ],
+            "settings": {
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-17",
+                        "path": "/usr/local/sdkman/candidates/java/17.0.8-tem"
+                    }
+                ]
+            }
+        }
+    },
+    "forwardPorts": [8080],
+    "portsAttributes": {
+        "8080": {
+            "label": "App Preview"
+        }
+    },
+    "postCreateCommand": "echo 'Android environment ready!' && java -version"
+}
